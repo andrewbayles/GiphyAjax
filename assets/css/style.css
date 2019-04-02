@@ -17,6 +17,7 @@ header nav {
 
 h1 {
 	font-size: 1.8rem;
+	font-weight: bold;
 }
 
 #scene-form {
@@ -25,10 +26,11 @@ h1 {
 
 #scene-form #scene-input {
 	font-size: 0.8rem;
+	padding: 0.4rem 0.6rem;
 }
 
 #scene-form #add-scene {
-
+	font-size: 1.0rem;
 }
 
 #buttons-view button {
@@ -41,7 +43,8 @@ h1 {
 }
 
 #buttons-view button button {
-
+	margin-left: 10px;
+    margin-right: 0;
 }
 
 #container {

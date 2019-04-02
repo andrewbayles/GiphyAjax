@@ -9,10 +9,10 @@ function renderButtons() {
 
 	for (let i = 0; i < queries.length; i++) {
 		let queryURL = "https://api.giphy.com/v1/gifs/search?q=movie+scene+" + queries[i] + "&api_key=" + giphyApiKey + "&limit=8";
-		$("#buttons-view").append( "<button value=" + queryURL + ">" + queries[i] + "</button>" );
+		$("#buttons-view").append( '<button class="terms-button" value=' + queryURL + '>' + queries[i] + '</button>' );
 		
 
-		$("#buttons-view > button").append( '<button value="' + i + '">X</button>' ); // BUGGY: Creating multiple "X" child buttons where unexpected.
+		//$("#buttons-view .terms-button").append( '<button value="' + i + '">X</button>' ); // BUGGY: Creating multiple "X" child buttons where unexpected.
 	
 
 	}
