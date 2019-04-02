@@ -27,25 +27,22 @@ function renderButtons() {
 		method: "GET"
 		}).then(function(response) {
 
-			
-
-			console.log( response );
-
-
+			//console.log( response );
 
 			// Display newest called GIFs from Giphy, dump them in #scenes-view.
-
 			var results = response.data;
-
 			for (var j = 0; j < results.length; j++) {
 
 				// Only taking action if the photo has an appropriate rating
 	            if (results[j].rating !== "r" && results[j].rating !== "pg-13") {
+
 					// Creating a div for the gif
 					var gifDiv = $("<div>");
 
 					// Storing the result item's rating
 					var rating = results[j].rating;
+
+					rating = rating.toUpperCase();
 
 					// Creating a paragraph tag with the result item's rating
 					var p = $("<p>").text("Rating: " + rating);
@@ -55,14 +52,10 @@ function renderButtons() {
 
 					personImage.addClass("gif");
 
-					// Giving the image tag an src attribute of a proprty pulled off the
-					// result item
+					// Giving the image tag an src attribute of a proprty pulled off the result item
 					personImage.attr("src", results[j].images.fixed_height.url);
-
 					personImage.attr("data-still", results[j].images.fixed_height_still.url);
-
 					personImage.attr("data-animate", results[j].images.fixed_height.url);
-
 					personImage.attr("data-state", "still");
 
 					// Appending the paragraph and personImage we created to the "gifDiv" div we created
@@ -72,10 +65,9 @@ function renderButtons() {
 					// Prepending the gifDiv to the "#scenes-view" div in the HTML
 					$("#scenes-view").prepend(gifDiv);
 
+					// Attach pause/unpause functionality.
 					$(".gif").on("click", function() {
-
 						var state = $(this).attr( "data-state" );
-
 						if ( state === 'still' ) {
 							$(this).attr( 'src', $(this).attr( "data-animate" ) );
 							$(this).attr( 'data-state', 'animate' );
@@ -83,9 +75,8 @@ function renderButtons() {
 							$(this).attr( 'src', $(this).attr( "data-still" ) );
 							$(this).attr( 'data-state', 'still' );
 						}
-
 					});
-					
+
 	            }
 
 			}
