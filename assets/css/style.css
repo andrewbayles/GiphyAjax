@@ -21,7 +21,7 @@ h1 {
 }
 
 #scene-form {
-	padding: 1.0rem;
+	padding: 1.0rem 1.0rem 0 0;
 }
 
 #scene-form #scene-input {
@@ -40,6 +40,7 @@ h1 {
     padding: 0.2rem 0.5rem;
     margin-right: 0.5rem;
     border-radius: 0.6rem;
+    margin-top: 10px;
 }
 
 #buttons-view button button {
@@ -60,14 +61,21 @@ h1 {
 	float: left;
 }
 
+#scenes-view h5 {
+	text-align: center;
+	font-size: 0.9rem;
+}
+
 #scenes-view p {
 	text-align: center;
-    margin: 10px 0;
+    margin: 2px 0 10px;
     color: #aaaaaa;
+    font-size: 0.8rem;
 }
 
 #scenes-view .gif {
 	margin: 0 8px;
+	border-radius: 0.8rem;
 }
 
 footer {

@@ -27,7 +27,7 @@ function renderButtons() {
 		method: "GET"
 		}).then(function(response) {
 
-			//console.log( response );
+			console.log( response );
 
 			// Display newest called GIFs from Giphy, dump them in #scenes-view.
 			var results = response.data;
@@ -47,6 +47,11 @@ function renderButtons() {
 					// Creating a paragraph tag with the result item's rating
 					var p = $("<p>").text("Rating: " + rating);
 
+
+					var imageTitle = results[j].title;
+
+					var h5 = $("<h5>").text( imageTitle );
+
 					// Creating an image tag
 					var personImage = $("<img>");
 
@@ -59,8 +64,9 @@ function renderButtons() {
 					personImage.attr("data-state", "still");
 
 					// Appending the paragraph and personImage we created to the "gifDiv" div we created
-					gifDiv.append(p);
 					gifDiv.append(personImage);
+					gifDiv.append(h5);
+					gifDiv.append(p);
 
 					// Prepending the gifDiv to the "#scenes-view" div in the HTML
 					$("#scenes-view").prepend(gifDiv);
