@@ -1,4 +1,4 @@
-let queries = [ "Action", "Comedy", "Drama", "Horror", "Sci-Fi+Fantasy" ];
+let queries = [ "Action", "Comedy", "Drama", "Horror", "Sci-Fi Fantasy" ];
 let giphyApiKey = "wHoUOdTCE4csSKSWXWSxaRycO6OlXQ42";
 
 
@@ -8,8 +8,12 @@ function renderButtons() {
 	$("#buttons-view").empty();
 
 	for (let i = 0; i < queries.length; i++) {
-		let queryURL = "https://api.giphy.com/v1/gifs/search?q=movie+scene+" + queries[i] + "&api_key=" + giphyApiKey + "&limit=8";
-		$("#buttons-view").append( '<button class="terms-button" value=' + queryURL + '>' + queries[i] + '</button>' );
+
+		var imageButtonText = queries[i];
+		var imageButtonUrl = queries[i].replace(' ', '+'); // Replace all spaces in queries[i] with plus signs.
+
+		let queryURL = "https://api.giphy.com/v1/gifs/search?q=movie+scene+" + imageButtonUrl + "&api_key=" + giphyApiKey + "&limit=8";
+		$("#buttons-view").append( '<button class="terms-button" value=' + queryURL + '>' + imageButtonText + '</button>' );
 		
 
 		//$("#buttons-view .terms-button").append( '<button value="' + i + '">X</button>' ); // BUGGY: Creating multiple "X" child buttons where unexpected.
